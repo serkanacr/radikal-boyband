@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import './App.css'
 
@@ -58,6 +58,14 @@ function App() {
   const [activeRelease, setActiveRelease] = useState(0)
   const [discLight, setDiscLight] = useState({ x: 50, y: 40 })
   const [videoPlaying, setVideoPlaying] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 800)
+
+  useEffect(() => {
+    const updateLayout = () => setIsMobile(window.innerWidth <= 800)
+    window.addEventListener('resize', updateLayout)
+    return () => window.removeEventListener('resize', updateLayout)
+  }, [])
 
   const stars = useMemo(() => {
     let seed = 84721
@@ -113,12 +121,13 @@ function App() {
             <img src="/image/radikallogo.jpg" alt="Radikal logosu" />
             <span>RADİKAL</span>
           </a>
-          <nav className="main-menu" aria-label="Ana menü">
-            <a href="#uyeler">ÜYELER</a>
-            <a href="#klipler">KLİPLER</a>
-            <a href="#diskografi">DİSKOGRAFİ</a>
-            <a href="#konser">KONSER</a>
-            <a href="#sosyal">SOSYAL</a>
+          <button className={`menu-toggle${mobileMenuOpen ? ' open' : ''}`} type="button" onClick={() => setMobileMenuOpen((open) => !open)} aria-expanded={mobileMenuOpen} aria-controls="main-menu" aria-label="Menüyü aç veya kapat"><span /><span /></button>
+          <nav id="main-menu" className={`main-menu${mobileMenuOpen ? ' mobile-open' : ''}`} aria-label="Ana menü">
+            <a href="#uyeler" onClick={() => setMobileMenuOpen(false)}>ÜYELER</a>
+            <a href="#klipler" onClick={() => setMobileMenuOpen(false)}>KLİPLER</a>
+            <a href="#diskografi" onClick={() => setMobileMenuOpen(false)}>DİSKOGRAFİ</a>
+            <a href="#konser" onClick={() => setMobileMenuOpen(false)}>KONSER</a>
+            <a href="#sosyal" onClick={() => setMobileMenuOpen(false)}>SOSYAL</a>
           </nav>
         </header>
 
@@ -137,7 +146,11 @@ function App() {
         <motion.div className="photo-orbit" style={{ x: photoX, y: photoY }} initial={{ opacity: 0, x: 70 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1.15, delay: 0.42, ease: [0.16, 1, 0.3, 1] }}>
           {photos.map((photo, index) => {
             const slot = (index - activePhoto + photos.length) % photos.length
-            const poses = [
+            const poses = isMobile ? [
+              { x: 0, y: 0, scale: 1, rotateY: 0, rotateZ: -1, opacity: 1, zIndex: 3 },
+              { x: 92, y: 24, scale: 0.78, rotateY: -15, rotateZ: 5, opacity: .9, zIndex: 1 },
+              { x: -92, y: 24, scale: 0.78, rotateY: 15, rotateZ: -5, opacity: .9, zIndex: 2 },
+            ] : [
               { x: 0, y: 0, scale: 1, rotateY: 0, rotateZ: -1, opacity: 1, zIndex: 3 },
               { x: 235, y: 38, scale: 0.74, rotateY: -20, rotateZ: 6, opacity: 1, zIndex: 1 },
               { x: -235, y: 38, scale: 0.74, rotateY: 20, rotateZ: -6, opacity: 1, zIndex: 2 },
