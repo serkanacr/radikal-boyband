@@ -685,14 +685,18 @@ a { color: inherit; }
   .menu-toggle span { position: absolute; left: 12px; width: 17px; height: 1px; background: currentColor; transition: top .3s ease,transform .3s ease; }
   .menu-toggle span:first-child { top: 16px; }.menu-toggle span:last-child { top: 24px; }
   .menu-toggle.open span:first-child { top: 20px; transform: rotate(45deg); }.menu-toggle.open span:last-child { top: 20px; transform: rotate(-45deg); }
-  .main-menu { position: fixed; z-index: 30; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 27px; visibility: hidden; opacity: 0; pointer-events: none; background: rgba(2,3,10,.96); backdrop-filter: blur(20px); transform: translateY(-14px); transition: opacity .3s ease,transform .35s ease,visibility .3s; }
+  .main-menu { position: fixed; z-index: 30; top: 0; left: 0; display: flex; flex-direction: column; align-items: stretch; justify-content: center; justify-self: stretch; gap: 0; width: 100vw; height: 100dvh; padding: 105px 9vw 55px; visibility: hidden; opacity: 0; pointer-events: none; background: radial-gradient(circle at 78% 18%,rgba(106,128,246,.2),transparent 27%),radial-gradient(circle at 18% 82%,rgba(91,67,181,.13),transparent 30%),#02030a; backdrop-filter: blur(20px); transform: translateY(-14px); transition: opacity .3s ease,transform .35s ease,visibility .3s; }
+  .main-menu::before { content: 'RADİKAL / MENU'; display: block; padding-bottom: 18px; color: #8296fa; border-bottom: 1px solid rgba(255,255,255,.2); font: 500 9px/1 'DM Mono',monospace; letter-spacing: .24em; }
+  .main-menu::after { content: 'THE NEXT GENERATION OF STARS  ✦'; margin-top: 26px; color: rgba(255,255,255,.3); font: 400 8px/1 'DM Mono',monospace; letter-spacing: .15em; }
   .main-menu.mobile-open { visibility: visible; opacity: 1; pointer-events: auto; transform: translateY(0); }
-  .main-menu a { color: #f4f6ff; font: 400 42px/.9 'Bebas Neue',sans-serif; letter-spacing: .05em; }
-  .main-menu a::after { bottom: -10px; }
+  .main-menu a { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 15px 2px 12px; color: #f4f6ff; border-bottom: 1px solid rgba(255,255,255,.12); font: 400 clamp(38px,12vw,58px)/.9 'Bebas Neue',sans-serif; letter-spacing: .04em; }
+  .main-menu a::before { color: rgba(133,153,255,.62); font: 500 9px/1 'DM Mono',monospace; letter-spacing: .1em; }
+  .main-menu a:nth-of-type(1)::before { content: '01'; }.main-menu a:nth-of-type(2)::before { content: '02'; }.main-menu a:nth-of-type(3)::before { content: '03'; }.main-menu a:nth-of-type(4)::before { content: '04'; }.main-menu a:nth-of-type(5)::before { content: '05'; }
+  .main-menu a::after { position: static; width: 6px; height: 6px; border-radius: 0; background: #8da1ff; transform: rotate(45deg); }
   .hero-copy { left: 0; top: 16%; width: 100%; align-items: center; text-align: center; }
   .hero-copy::after { width: 76vw; margin-top: 10px; background: linear-gradient(90deg,transparent,rgba(128,150,255,.7),transparent); }
   .hero-copy h1 { padding: 0; font-size: clamp(68px,20vw,122px); letter-spacing: .015em; transform: skewX(-4deg); }
-  .photo-orbit { left: 20vw; top: 36%; width: 60vw; height: 52vh; }
+  .photo-orbit { left: 22vw; top: 36%; width: 56vw; height: 52vh; }
   .photo-frame img { height: min(51vh,530px); }
   .side-note { display: none; }
   .spotlight { background: radial-gradient(circle 180px at var(--spot-x) var(--spot-y),rgba(133,157,255,.13),transparent 72%); }
@@ -734,7 +738,7 @@ a { color: inherit; }
 @media (max-width: 460px) {
   .brand span { display: none; }
   .hero-copy { left: 0; top: 17%; width: 100%; }
-  .photo-orbit { left: 19vw; top: 37%; width: 62vw; }
+  .photo-orbit { left: 21vw; top: 37%; width: 58vw; }
   .photo-frame img { height: 48vh; }
   .members-heading p { font-size: 8px; }
   .member-stage { inset: 20vh 0 23vh; }

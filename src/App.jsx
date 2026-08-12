@@ -148,8 +148,8 @@ function App() {
             const slot = (index - activePhoto + photos.length) % photos.length
             const poses = isMobile ? [
               { x: 0, y: 0, scale: 1, rotateY: 0, rotateZ: -1, opacity: 1, zIndex: 3 },
-              { x: 92, y: 24, scale: 0.78, rotateY: -15, rotateZ: 5, opacity: .9, zIndex: 1 },
-              { x: -92, y: 24, scale: 0.78, rotateY: 15, rotateZ: -5, opacity: .9, zIndex: 2 },
+              { x: 132, y: 35, scale: 0.63, rotateY: -16, rotateZ: 6, opacity: .92, zIndex: 1 },
+              { x: -132, y: 35, scale: 0.63, rotateY: 16, rotateZ: -6, opacity: .92, zIndex: 2 },
             ] : [
               { x: 0, y: 0, scale: 1, rotateY: 0, rotateZ: -1, opacity: 1, zIndex: 3 },
               { x: 235, y: 38, scale: 0.74, rotateY: -20, rotateZ: 6, opacity: 1, zIndex: 1 },
