@@ -5,7 +5,7 @@ import './App.css'
 const STAR_COUNT = 86
 const photos = [
   { src: '/image/radikal.jpg', label: 'FRAME 001', position: 'center 41%' },
-  { src: '/image/radikal2.jpg', label: 'FRAME 002', position: 'center center', fit: 'contain' },
+  { src: '/image/radikal2.jpg', label: 'FRAME 002', position: 'center 35%' },
   { src: '/image/radikal3.jpg', label: 'FRAME 003', position: 'center 38%' },
 ]
 const members = [
