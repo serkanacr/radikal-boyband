@@ -124,8 +124,8 @@ function App() {
           <button className={`menu-toggle${mobileMenuOpen ? ' open' : ''}`} type="button" onClick={() => setMobileMenuOpen((open) => !open)} aria-expanded={mobileMenuOpen} aria-controls="main-menu" aria-label="Menüyü aç veya kapat"><span /><span /></button>
           <nav id="main-menu" className={`main-menu${mobileMenuOpen ? ' mobile-open' : ''}`} aria-label="Ana menü">
             <a href="#uyeler" onClick={() => setMobileMenuOpen(false)}>ÜYELER</a>
-            <a href="#klipler" onClick={() => setMobileMenuOpen(false)}>KLİPLER</a>
             <a href="#diskografi" onClick={() => setMobileMenuOpen(false)}>DİSKOGRAFİ</a>
+            <a href="#klipler" onClick={() => setMobileMenuOpen(false)}>KLİPLER</a>
             <a href="#konser" onClick={() => setMobileMenuOpen(false)}>KONSER</a>
             <a href="#sosyal" onClick={() => setMobileMenuOpen(false)}>SOSYAL</a>
           </nav>
@@ -367,7 +367,6 @@ function App() {
           ))}
         </div>
         <motion.header className="videos-heading" initial={{ opacity: 0, x: -42 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: .6 }} transition={{ duration: .68, ease: [0.16, 1, 0.3, 1] }}>
-          <p>RADİKAL VISUAL ARCHIVE · 001</p>
           <h2 id="videos-title">KLİPLER</h2>
         </motion.header>
         <motion.article className="featured-video" initial={{ opacity: 0, filter: 'blur(8px)', y: 20 }} whileInView={{ opacity: 1, filter: 'blur(0px)', y: 0 }} viewport={{ once: true, amount: .25 }} transition={{ duration: .72, delay: .08, ease: [0.16, 1, 0.3, 1] }}>
@@ -414,7 +413,6 @@ function App() {
         </div>
 
         <motion.header className="concerts-heading" initial={{ opacity: 0, x: -42 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: .6 }} transition={{ duration: .68, ease: [0.16, 1, 0.3, 1] }}>
-          <p>RADİKAL LIVE ARCHIVE · 000</p>
           <h2 id="concerts-title">KONSERLER</h2>
         </motion.header>
 
@@ -430,6 +428,29 @@ function App() {
         </motion.div>
 
         <motion.p className="concert-side-note" initial={{ opacity: 0, y: -60 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .6 }} transition={{ duration: .72, delay: .16, ease: [0.16, 1, 0.3, 1] }}>THE FIRST NIGHT IS YET TO COME</motion.p>
+      </section>
+
+      <section id="sosyal" className="social-section" aria-labelledby="social-title">
+        <div className="disco-stars social-stars" aria-hidden="true">
+          {stars.slice(8, 54).map((star) => <span key={`social-${star.id}`} style={{ left: `${star.x}%`, top: `${star.y}%`, fontSize: `${Math.max(5, star.size * 1.2)}px`, opacity: .15 + (star.size / 8) * .42 }}>✦</span>)}
+        </div>
+        <motion.header className="social-heading" initial={{ opacity: 0, x: -42 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: .6 }} transition={{ duration: .68, ease: [0.16, 1, 0.3, 1] }}>
+          <p>RADİKAL'I TAKİP ET</p><h2 id="social-title">SOSYAL</h2>
+        </motion.header>
+        <motion.div className="social-links" initial="hidden" whileInView="visible" viewport={{ once: true, amount: .25 }} variants={{ hidden: {}, visible: { transition: { staggerChildren: .07 } } }}>
+          {[
+            ['01','INSTAGRAM','@RADIK5L','https://www.instagram.com/radik5l/?hl=en','#ef5da8'],
+            ['02','X','@RADIK5L','https://x.com/radik5l','#dce3ff'],
+            ['03','TIKTOK','@RADIK5L','https://www.tiktok.com/@radik5l','#58e7e0'],
+            ['04','SPOTIFY','RADİKAL','https://open.spotify.com/intl-tr/artist/16CDaDlBd2bji8I4Ck1iuV?si=ee6dmwirTo6PAJp1dpl1FQ','#1ed760'],
+            ['05','YOUTUBE','RADIK5L','https://www.youtube.com/channel/UCxhQ92su4PAYWCiBN1fZBBg','#ff4747'],
+          ].map(([number,name,handle,url,color]) => (
+            <motion.a key={name} href={url} target="_blank" rel="noreferrer" style={{ '--social-color': color }} variants={{ hidden: { opacity: 0, y: 22 }, visible: { opacity: 1, y: 0, transition: { duration: .52, ease: [0.16,1,.3,1] } } }}>
+              <span>{number}</span><b>{name}</b><small>{handle}</small><i>✦</i><em>↗</em>
+            </motion.a>
+          ))}
+        </motion.div>
+        <footer className="site-footer"><img src="/image/radikallogo.jpg" alt="Radikal logosu" /><span>RADİKAL © 2026</span><span>THE NEXT GENERATION OF STARS</span></footer>
       </section>
     </main>
   )

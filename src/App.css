@@ -646,6 +646,16 @@ a { color: inherit; }
 .concert-side-note { position: absolute; z-index: 3; right: 3.4vw; bottom: 5vh; margin: 0; color: rgba(255,255,255,.34); font: 400 8px/1 'DM Mono',monospace; letter-spacing: .24em; writing-mode: vertical-rl; }
 @keyframes concert-ring { 0% { opacity: .8; transform: translate(-50%,-50%) scale(.55); } 100% { opacity: 0; transform: translate(-50%,-50%) scale(3.6); } }
 
+.social-section { position: relative; min-height: 100svh; overflow: hidden; isolation: isolate; padding: 6vh clamp(24px,5vw,80px) 0; background: radial-gradient(circle at 72% 38%,rgba(85,105,215,.16),transparent 34%),#02030a; border-top: 1px solid rgba(255,255,255,.12); }
+.social-heading { position: relative; z-index: 4; }
+.social-heading p { margin: 0; color: rgba(255,255,255,.45); font: 400 9px/1 'DM Mono',monospace; letter-spacing: .24em; }
+.social-heading h2 { margin: 28px 0 0; color: #eef1ff; font: 400 clamp(70px,8.5vw,136px)/.88 'Bebas Neue',sans-serif; letter-spacing: .015em; text-shadow: 0 0 46px rgba(109,132,255,.18); }
+.social-links { position: relative; z-index: 5; max-width: 1120px; margin: 6vh auto 110px; border-top: 1px solid rgba(255,255,255,.16); }
+.social-links a { display: grid; grid-template-columns: 55px 1fr 1fr 35px 28px; align-items: center; min-height: 76px; padding: 0 18px; color: rgba(255,255,255,.48); border-bottom: 1px solid rgba(255,255,255,.13); text-decoration: none; transition: color .3s ease,background .3s ease,padding .3s ease; }
+.social-links a:hover { padding-left: 27px; color: #fff; background: linear-gradient(90deg,rgba(255,255,255,.025),transparent); }
+.social-links a > span { font: 500 9px/1 'DM Mono',monospace; }.social-links a b { color: inherit; font: 400 clamp(30px,3.4vw,50px)/1 'Bebas Neue',sans-serif; letter-spacing: .04em; }.social-links a small { font: 400 9px/1 'DM Mono',monospace; letter-spacing: .14em; }.social-links a i { color: var(--social-color); font-style: normal; font-size: 17px; text-shadow: 0 0 12px var(--social-color); transition: transform .35s ease; }.social-links a:hover i { transform: rotate(45deg) scale(1.4); }.social-links a em { justify-self: end; color: var(--social-color); font-style: normal; font-size: 18px; }
+.site-footer { position: absolute; z-index: 5; right: 0; bottom: 0; left: 0; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 72px; padding: 0 clamp(24px,5vw,80px); border-top: 1px solid rgba(255,255,255,.13); color: rgba(255,255,255,.35); font: 400 8px/1 'DM Mono',monospace; letter-spacing: .16em; }.site-footer img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; filter: invert(1); }.site-footer span:last-child { justify-self: end; }
+
 /* Compact desktop video archive */
 @media (min-width: 801px) {
   .discography-section,
@@ -734,6 +744,10 @@ a { color: inherit; }
   .concerts-heading { top: 35px; right: 20px; left: 20px; text-align: center; }
   .concerts-heading h2 { font-size: clamp(66px,20vw,104px); }
   .concert-empty { top: 29%; width: 88vw; }
+  .social-section { min-height: 850px; padding-top: 35px; }
+  .social-heading { text-align: center; }.social-heading h2 { font-size: clamp(66px,20vw,104px); }
+  .social-links { margin-top: 55px; }.social-links a { grid-template-columns: 38px 1fr 25px; min-height: 74px; padding-inline: 8px; }.social-links a small { display: none; }.social-links a i { display: none; }.social-links a b { font-size: 34px; }
+  .site-footer { grid-template-columns: auto 1fr; gap: 15px; }.site-footer span:last-child { display: none; }
 }
 @media (max-width: 460px) {
   .brand span { display: none; }
