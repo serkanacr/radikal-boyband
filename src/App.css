@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Inter:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Inter:wght@400;600;800&display=swap');
 
 :root { --ink: #02030a; --white: #f7f8ff; --electric: #8096ff; }
 * { box-sizing: border-box; }
@@ -69,11 +69,11 @@ a { color: inherit; }
   margin: 0;
   padding: 0 1vw;
   color: #eef1ff;
-  font: 400 clamp(82px,10.3vw,160px)/.86 'Bebas Neue',sans-serif;
-  letter-spacing: .015em;
-  text-indent: .015em;
+  font: 400 clamp(66px,8.3vw,130px)/.9 'Audiowide',sans-serif;
+  letter-spacing: -.055em;
+  text-indent: -.055em;
   white-space: nowrap;
-  transform: skewX(-4deg);
+  transform: scaleX(1.03);
   -webkit-text-fill-color: #eef1ff;
   -webkit-text-stroke: 0;
   text-shadow: 0 5px 0 rgba(58,70,132,.7),0 0 28px rgba(104,128,244,.3);
@@ -705,7 +705,7 @@ a { color: inherit; }
   .main-menu a::after { position: static; width: 6px; height: 6px; border-radius: 0; background: #8da1ff; transform: rotate(45deg); }
   .hero-copy { left: 0; top: 16%; width: 100%; align-items: center; text-align: center; }
   .hero-copy::after { width: 76vw; margin-top: 10px; background: linear-gradient(90deg,transparent,rgba(128,150,255,.7),transparent); }
-  .hero-copy h1 { padding: 0; font-size: clamp(68px,20vw,122px); letter-spacing: .015em; transform: skewX(-4deg); }
+  .hero-copy h1 { padding: 0; font-size: clamp(49px,14.8vw,90px); letter-spacing: -.055em; transform: scaleX(1.01); }
   .photo-orbit { left: 22vw; top: 36%; width: 56vw; height: 52vh; }
   .photo-frame img { height: min(51vh,530px); }
   .side-note { display: none; }
