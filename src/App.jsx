@@ -5,7 +5,7 @@ import './App.css'
 const STAR_COUNT = 86
 const photos = [
   { src: '/image/radikal.jpg', label: 'FRAME 001', position: 'center 41%' },
-  { src: '/image/radikal2.jpg', label: 'FRAME 002', position: 'center 35%' },
+  { src: '/image/radikal2.jpg', label: 'FRAME 002', position: 'center center', fit: 'contain' },
   { src: '/image/radikal3.jpg', label: 'FRAME 003', position: 'center 38%' },
 ]
 const members = [
@@ -66,6 +66,13 @@ function App() {
     window.addEventListener('resize', updateLayout)
     return () => window.removeEventListener('resize', updateLayout)
   }, [])
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return undefined
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = previousOverflow }
+  }, [mobileMenuOpen])
 
   const stars = useMemo(() => {
     let seed = 84721
@@ -164,7 +171,7 @@ function App() {
                 onClick={() => setActivePhoto((current) => (current + 1) % photos.length)}
               >
                 <div className="photo-frame">
-                  <img src={photo.src} alt={`Radikal grubu — ${photo.label}`} style={{ objectPosition: photo.position }} />
+                  <img src={photo.src} alt={`Radikal grubu — ${photo.label}`} style={{ objectPosition: photo.position, objectFit: photo.fit ?? 'cover' }} />
                   <span className="frame-corner top-left" /><span className="frame-corner top-right" />
                   <span className="frame-corner bottom-left" /><span className="frame-corner bottom-right" />
                   <span className="photo-index">{photo.label}</span>

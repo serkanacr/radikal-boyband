@@ -690,12 +690,12 @@ a { color: inherit; }
 @keyframes marquee { to { transform: translateX(-25%); } }
 
 @media (max-width: 800px) {
-  .hero-nav { grid-template-columns: 1fr auto; padding: 16px 18px; }
-  .menu-toggle { position: relative; z-index: 32; display: block; width: 42px; height: 42px; padding: 0; color: white; background: rgba(5,7,16,.65); border: 1px solid rgba(255,255,255,.2); border-radius: 50%; }
+  .hero-nav { z-index: 100; grid-template-columns: 1fr auto; padding: 16px 18px; }
+  .menu-toggle { position: relative; z-index: 102; display: block; width: 42px; height: 42px; padding: 0; color: white; background: rgba(5,7,16,.65); border: 1px solid rgba(255,255,255,.2); border-radius: 50%; }
   .menu-toggle span { position: absolute; left: 12px; width: 17px; height: 1px; background: currentColor; transition: top .3s ease,transform .3s ease; }
   .menu-toggle span:first-child { top: 16px; }.menu-toggle span:last-child { top: 24px; }
   .menu-toggle.open span:first-child { top: 20px; transform: rotate(45deg); }.menu-toggle.open span:last-child { top: 20px; transform: rotate(-45deg); }
-  .main-menu { position: fixed; z-index: 30; top: 0; left: 0; display: flex; flex-direction: column; align-items: stretch; justify-content: center; justify-self: stretch; gap: 0; width: 100vw; height: 100dvh; padding: 105px 9vw 55px; visibility: hidden; opacity: 0; pointer-events: none; background: radial-gradient(circle at 78% 18%,rgba(106,128,246,.2),transparent 27%),radial-gradient(circle at 18% 82%,rgba(91,67,181,.13),transparent 30%),#02030a; backdrop-filter: blur(20px); transform: translateY(-14px); transition: opacity .3s ease,transform .35s ease,visibility .3s; }
+  .main-menu { position: fixed; z-index: 101; top: 0; left: 0; display: flex; flex-direction: column; align-items: stretch; justify-content: center; justify-self: stretch; gap: 0; width: 100vw; height: 100dvh; padding: 105px 9vw 55px; visibility: hidden; opacity: 0; pointer-events: none; background: radial-gradient(circle at 78% 18%,rgba(106,128,246,.2),transparent 27%),radial-gradient(circle at 18% 82%,rgba(91,67,181,.13),transparent 30%),#02030a; backdrop-filter: blur(20px); transform: translateY(-14px); transition: opacity .3s ease,transform .35s ease,visibility .3s; }
   .main-menu::before { content: 'RADİKAL / MENU'; display: block; padding-bottom: 18px; color: #8296fa; border-bottom: 1px solid rgba(255,255,255,.2); font: 500 9px/1 'DM Mono',monospace; letter-spacing: .24em; }
   .main-menu::after { content: 'THE NEXT GENERATION OF STARS  ✦'; margin-top: 26px; color: rgba(255,255,255,.3); font: 400 8px/1 'DM Mono',monospace; letter-spacing: .15em; }
   .main-menu.mobile-open { visibility: visible; opacity: 1; pointer-events: auto; transform: translateY(0); }
@@ -744,10 +744,10 @@ a { color: inherit; }
   .concerts-heading { top: 35px; right: 20px; left: 20px; text-align: center; }
   .concerts-heading h2 { font-size: clamp(66px,20vw,104px); }
   .concert-empty { top: 29%; width: 88vw; }
-  .social-section { min-height: 850px; padding-top: 35px; }
+  .social-section { min-height: 0; padding-top: 35px; padding-bottom: 0; }
   .social-heading { text-align: center; }.social-heading h2 { font-size: clamp(66px,20vw,104px); }
-  .social-links { margin-top: 55px; }.social-links a { grid-template-columns: 38px 1fr 25px; min-height: 74px; padding-inline: 8px; }.social-links a small { display: none; }.social-links a i { display: none; }.social-links a b { font-size: 34px; }
-  .site-footer { grid-template-columns: auto 1fr; gap: 15px; }.site-footer span:last-child { display: none; }
+  .social-links { margin-top: 55px; margin-bottom: 38px; }.social-links a { grid-template-columns: 38px 1fr 25px; min-height: 74px; padding-inline: 8px; }.social-links a small { display: none; }.social-links a i { display: none; }.social-links a b { font-size: 34px; }
+  .site-footer { position: relative; right: auto; bottom: auto; left: auto; width: calc(100% + 44px); margin-left: -22px; grid-template-columns: auto 1fr; gap: 15px; }.site-footer span:last-child { display: none; }
 }
 @media (max-width: 460px) {
   .brand span { display: none; }
